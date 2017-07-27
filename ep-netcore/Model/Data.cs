@@ -28,6 +28,12 @@ namespace epnetcore.Model
         [JsonProperty("TP")]
         public double? TP { get; set; }
 
+        [JsonProperty("GAA")]
+        public double? GAA { get; set; }
+
+        [JsonProperty("SVP")]
+        public double? SVP { get; set; }
+
         [JsonProperty("league")]
         public League League { get; set; }
 
