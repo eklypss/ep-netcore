@@ -13,6 +13,9 @@ namespace epnetcore.Model
         [JsonProperty("country")]
         public Country Country { get; set; }
 
+        [JsonProperty("caphit")]
+        public string Caphit { get; set; }
+
         [JsonProperty("contract")]
         public string Contract { get; set; }
 
