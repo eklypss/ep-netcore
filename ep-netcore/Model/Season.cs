@@ -8,7 +8,7 @@ namespace epnetcore.Model
         public string Name { get; set; }
 
         [JsonProperty("endYear")]
-        public double EndYear { get; set; }
+        public int EndYear { get; set; }
 
         [JsonProperty("active")]
         public string Active { get; set; }
@@ -23,7 +23,7 @@ namespace epnetcore.Model
         public string SeasonTypeEnd { get; set; }
 
         [JsonProperty("startYear")]
-        public double StartYear { get; set; }
+        public int StartYear { get; set; }
 
         [JsonProperty("updated")]
         public string Updated { get; set; }
