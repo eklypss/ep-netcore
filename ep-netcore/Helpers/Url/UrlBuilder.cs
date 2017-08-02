@@ -5,18 +5,21 @@ namespace epnetcore.Helpers.Url
 {
     public static class UrlBuilder
     {
-        public static string BuildString(RequestType type, string apiKey, string playerName = "", int playerId = -1)
+        public static string BuildString(RequestType type, string apiKey, string searchTerm = "", int id = -1)
         {
             switch (type)
             {
-                case RequestType.Search:
+                case RequestType.PlayerSearch:
                 {
-                    return string.Format("{0}{1}&apiKey={2}", AvailableUrls.SEARCH_PLAYER_URL, playerName, apiKey);
+                    return string.Format(AvailableUrls.SEARCH_PLAYER_URL, searchTerm, apiKey);
                 }
-                case RequestType.Stats:
+                case RequestType.PlayerStats:
                 {
-                    string fixedUrl = AvailableUrls.PLAYER_STATS_URL.Replace("@ID@", playerId.ToString());
-                    return string.Format("{0}?apiKey={1}", fixedUrl, apiKey);
+                    return string.Format(AvailableUrls.PLAYER_STATS_URL, id, apiKey);
+                }
+                case RequestType.TeamSearch:
+                {
+                    return string.Format(AvailableUrls.SEARCH_TEAM_URL, searchTerm, apiKey);
                 }
                 default:
                 {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace epnetcore.Enum
 {
@@ -10,7 +6,8 @@ namespace epnetcore.Enum
     public enum RequestType
     {
         None,
-        Search,
-        Stats
+        PlayerSearch,
+        PlayerStats,
+        TeamSearch
     }
 }
