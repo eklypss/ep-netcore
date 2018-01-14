@@ -8,6 +8,7 @@ namespace epnetcore.Enum
         None,
         PlayerSearch,
         PlayerStats,
-        TeamSearch
+        TeamSearch,
+        LeagueSearch
     }
 }

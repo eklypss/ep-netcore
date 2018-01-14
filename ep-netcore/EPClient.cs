@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using epnetcore.Data;
 using epnetcore.Enum;
 using epnetcore.Helpers.Url;
 using epnetcore.Interfaces;
+using epnetcore.Model.Leagues;
 using epnetcore.Model.PlayerStats;
 using epnetcore.Model.Search;
 using epnetcore.Model.Teams;
@@ -83,6 +85,21 @@ namespace epnetcore
                 var result = await _requester.GetResultAsync(request);
                 var content = JsonConvert.DeserializeObject<TeamSearchResponse>(result);
                 return (int)content.Data.FirstOrDefault(x => x.LatestTeamStats.League.Name == leagueName).Id;
+            }
+        }
+
+        public async Task<List<int>> GetLeagueIds(string leagueName)
+        {
+            var test = UrlBuilder.BuildString(RequestType.LeagueSearch, _key, leagueName);
+            Console.WriteLine(test);
+            using (var request = new HttpRequestMessage(HttpMethod.Get, test))
+            {
+                var result = await _requester.GetResultAsync(request);
+                var content = JsonConvert.DeserializeObject<LeagueSearchResponse>(result);
+                var list2 = new List<int>();
+                content.Data.ForEach(x => list2.Add(x.Id));
+                return list2;
+                //return (int)content.Data.FirstOrDefault(x => x.LatestTeamStats.League.Name == leagueName).Id;
             }
         }
     }
