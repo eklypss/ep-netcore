@@ -25,6 +25,10 @@ namespace epnetcore.Helpers.Url
                     {
                         return string.Format(AvailableUrls.SEARCH_LEAGUE_URL, searchTerm, apiKey);
                     }
+                case RequestType.Scoring:
+                    {
+                        return string.Format(AvailableUrls.SCORING_URL, searchTerm, apiKey);
+                    }
                 default:
                     {
                         return string.Empty;

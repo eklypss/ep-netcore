@@ -9,6 +9,7 @@ namespace epnetcore.Enum
         PlayerSearch,
         PlayerStats,
         TeamSearch,
-        LeagueSearch
+        LeagueSearch,
+        Scoring
     }
 }

@@ -102,5 +102,17 @@ namespace epnetcore
                 //return (int)content.Data.FirstOrDefault(x => x.LatestTeamStats.League.Name == leagueName).Id;
             }
         }
+
+        public async Task<SearchResult> GetTopScorers(int leagueId, int seasonId = 198)
+        {
+            var test = UrlBuilder.BuildString(RequestType.Scoring, _key, leagueId.ToString());
+            Console.WriteLine(test);
+            using (var request = new HttpRequestMessage(HttpMethod.Get, test))
+            {
+                var result = await _requester.GetResultAsync(request);
+                var content = JsonConvert.DeserializeObject<SearchResult>(result);
+                return content;
+            }
+        }
     }
 }

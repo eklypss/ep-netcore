@@ -7,5 +7,6 @@
         public const string PLAYER_STATS_URL = "http://api.eliteprospects.com/beta/players/{0}/stats?limit=100&apiKey={1}";
         public const string SEARCH_TEAM_URL = "http://api.eliteprospects.com/beta/teams?filter=name={0}&apiKey={1}";
         public const string SEARCH_LEAGUE_URL = "http://api.eliteprospects.com/beta/leagues?filter=name={0}&apiKey={1}";
+        public const string SCORING_URL = "http://api.eliteprospects.com/beta/playerstats?filter=league.id={0}%26season.id=198&gameType=REGULAR_SEASON&sort=TP%3Adesc&limit=5&apiKey={1}";
     }
 }
