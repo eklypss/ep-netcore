@@ -9,7 +9,7 @@ namespace epnetcore.Helpers
         Mestis = 28,
         KHL = 192,
         SHL = 1,
-        NHL = 8,
-        AHL = 9
+        NHL = 7,
+        AHL = 8
     }
 }
