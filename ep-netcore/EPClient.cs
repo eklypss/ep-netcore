@@ -88,7 +88,7 @@ namespace epnetcore
             }
         }
 
-        public async Task<List<int>> GetLeagueIds(string leagueName)
+        public async Task<List<int>> GetLeagueIdsAsync(string leagueName)
         {
             var test = UrlBuilder.BuildString(RequestType.LeagueSearch, _key, leagueName);
             Console.WriteLine(test);
@@ -103,9 +103,33 @@ namespace epnetcore
             }
         }
 
-        public async Task<SearchResult> GetTopScorers(int leagueId, int seasonId = 198)
+        public async Task<SearchResult> GetTopScorersAsync(int leagueId, int seasonId = 198)
         {
             var test = UrlBuilder.BuildString(RequestType.Scoring, _key, leagueId.ToString());
+            Console.WriteLine(test);
+            using (var request = new HttpRequestMessage(HttpMethod.Get, test))
+            {
+                var result = await _requester.GetResultAsync(request);
+                var content = JsonConvert.DeserializeObject<SearchResult>(result);
+                return content;
+            }
+        }
+
+        public async Task<SearchResult> GetTopGoalsAsync(int leagueId, int seasonId = 198)
+        {
+            var test = UrlBuilder.BuildString(RequestType.Goals, _key, leagueId.ToString());
+            Console.WriteLine(test);
+            using (var request = new HttpRequestMessage(HttpMethod.Get, test))
+            {
+                var result = await _requester.GetResultAsync(request);
+                var content = JsonConvert.DeserializeObject<SearchResult>(result);
+                return content;
+            }
+        }
+
+        public async Task<SearchResult> GetTopSVPAsync(int leagueId, int seasonId = 198)
+        {
+            var test = UrlBuilder.BuildString(RequestType.SVP, _key, leagueId.ToString());
             Console.WriteLine(test);
             using (var request = new HttpRequestMessage(HttpMethod.Get, test))
             {

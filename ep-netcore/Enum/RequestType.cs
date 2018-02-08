@@ -10,6 +10,8 @@ namespace epnetcore.Enum
         PlayerStats,
         TeamSearch,
         LeagueSearch,
-        Scoring
+        Scoring,
+        Goals,
+        SVP
     }
 }
